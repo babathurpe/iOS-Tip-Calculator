@@ -34,33 +34,35 @@
     
     //15% tip amount
     float percent15 = amount * 0.15;
-    self.tip15Amount.text = [NSString stringWithFormat:@"%f", percent15];
+    self.tip15Amount.text = [NSString stringWithFormat:@"%.02f", percent15];
     
     //custom tip amount
     float customPercent = amount * (tip/100.0);
-    self.customTipAmount.text = [NSString stringWithFormat:@"%f", customPercent];
+    self.customTipAmount.text = [NSString stringWithFormat:@"%.02f", customPercent];
     
     //total 15%
-    self.totalAmount.text = [NSString stringWithFormat:@"%f", percent15+amount];
+    self.totalAmount.text = [NSString stringWithFormat:@"%.02f", percent15+amount];
     
     //total custom
-    self.totalCustom.text = [NSString stringWithFormat:@"%f", customPercent+amount];
+    self.totalCustom.text = [NSString stringWithFormat:@"%.02f", customPercent+amount];
     
     //each pays 15%
     float eachParty15 = (percent15+amount)/personsNumber;
     if (isnan(eachParty15)) {
-        self.eachPaysAmount.text = [NSString stringWithFormat:@"%f", nill];
+        self.eachPaysAmount.text = [NSString stringWithFormat:@"%.02f", nill];
     } else {
-        self.eachPaysAmount.text = [NSString stringWithFormat:@"%f", eachParty15];
+        self.eachPaysAmount.text = [NSString stringWithFormat:@"%.02f", eachParty15];
     }
     
     //Each pays custom
     float eachPartyCustom = (customPercent+amount)/personsNumber;
     if (isnan(eachPartyCustom)) {
-       self.partyCustom.text = [NSString stringWithFormat:@"%f", nill];
+       self.partyCustom.text = [NSString stringWithFormat:@"%.02f", nill];
     } else {
-        self.partyCustom.text = [NSString stringWithFormat:@"%f", eachPartyCustom];
+        self.partyCustom.text = [NSString stringWithFormat:@"%.02f", eachPartyCustom];
     }
+    
+    [self resignFirstResponder];
 }
 @end
 
